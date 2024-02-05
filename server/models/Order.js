@@ -7,10 +7,10 @@ const orderSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  menuItems: [
+  orderItems: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Menuitem'
+      ref: 'Orderitem'
     }
   ],
   completed: {

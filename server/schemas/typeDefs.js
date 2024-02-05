@@ -16,7 +16,39 @@ const typeDefs = `
   type Order {
     _id: ID
     purchaseDate: String
-    menuItems: [Menuitem]
+    orderItems: [Orderitem]
+    completed: Boolean
+  }
+
+  type Addons {
+    _id: ID
+    none: Boolean
+    spicy: Boolean
+    vegan: Boolean
+    vegetarian: Boolean
+    glutenfree: Boolean
+    comment: String
+  }
+
+  type Admin {
+    _id: ID
+    firstName: String
+    lastName: String
+    email: String
+    orders: [Order]
+    completedOrders: [Order]
+  }
+
+  type Orderitem {
+    _id: ID
+    menuItem: Menuitem
+    protein: Protein
+    addOns: Addons
+  }
+
+  type Protein {
+    title: String
+    price: Float
   }
 
   type User {
@@ -39,11 +71,11 @@ const typeDefs = `
 
   input MenuitemInput {
     _id: ID
-    purchaseQuantity: Int
     name: String
+    description: String
     image: String
     price: Float
-    quantity: Int
+    category: Category
   }
 
   type Query {
