@@ -11,24 +11,19 @@ const typeDefs = `
     image: String
     price: Float
     category: Category
+    protein: String
+    addOns: String
+    totalprice: Float
   }
 
   type Order {
     _id: ID
     purchaseDate: String
-    orderItems: [Orderitem]
+    menuItems: [Menuitem]
+    comment: String
     completed: Boolean
   }
 
-  type Addons {
-    _id: ID
-    none: Boolean
-    spicy: Boolean
-    vegan: Boolean
-    vegetarian: Boolean
-    glutenfree: Boolean
-    comment: String
-  }
 
   type Admin {
     _id: ID
@@ -37,18 +32,6 @@ const typeDefs = `
     email: String
     orders: [Order]
     completedOrders: [Order]
-  }
-
-  type Orderitem {
-    _id: ID
-    menuItem: Menuitem
-    protein: Protein
-    addOns: Addons
-  }
-
-  type Protein {
-    title: String
-    price: Float
   }
 
   type User {
@@ -76,23 +59,28 @@ const typeDefs = `
     image: String
     price: Float
     category: Category
+    protein: String
+    addOns: String
+    totalprice: Float
   }
 
   type Query {
     categories: [Category]
-    products(category: ID, name: String): [Product]
-    product(_id: ID!): Product
+    menuItems(category: ID, name: String): [Menuitem]
+    Menuitem(_id: ID!): Menuitem
     user: User
     order(_id: ID!): Order
-    checkout(products: [ProductInput]): Checkout
+    checkout(menuitems: [MenuInput]): Checkout
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addOrder(products: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
-    updateProduct(_id: ID!, quantity: Int!): Product
+    addUser(firstName: String!, lastName: String, email: String, password: String, mobile: String!): Auth
+    addOrder(menuitems: [ID]! comment: String): Order
+    addMenuitem(Menuitem: MenuitemInput!): Menuitem
+    updateUser(firstName: String, lastName: String, email: String, password: String, mobile: String): User
     login(email: String!, password: String!): Auth
+    updateOrder(completed: Boolean): Order
+    removeMenuitem(menuitems: [ID]!): Order
   }
 `;
 
