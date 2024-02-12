@@ -9,7 +9,7 @@ export const Nav = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
+    font-size: 2rem;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -85,11 +85,11 @@ export const NavLinks = styled(LinkScroll)`
     }
 `;
 
-export const NavBtn = styled.nav`
+export const NavBtn = styled.div`
     display: flex;
     align-items: center;
 
-    media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
         display: none;
     }
 `;
@@ -99,7 +99,7 @@ export const NavBtnLink = styled(LinkRouter)`
     white-space: nowrap;
     padding: 10px 22px;
     color: #fff;
-    font-size: 16px;
+    font-size: 20px;
     outline: none;
     border: none;
     cursor: pointer;
