@@ -6,6 +6,7 @@ const typeDefs = `
 
   type Menuitem {
     _id: ID
+    code: String
     name: String
     description: String
     image: String
@@ -53,27 +54,33 @@ const typeDefs = `
   }
 
   input MenuitemInput {
-    _id: ID
+    code: String
     name: String
     description: String
     image: String
     price: Float
-    category: Category
+    category: CategoryInput
     protein: String
     addOns: String
     totalprice: Float
   }
 
+  input CategoryInput {
+    _id: ID
+    name: String
+  }
+
   type Query {
     categories: [Category]
     menuItems(category: ID, name: String): [Menuitem]
-    Menuitem(_id: ID!): Menuitem
+    menuitem(_id: ID!): Menuitem
     user: User
     order(_id: ID!): Order
-    checkout(menuitems: [MenuInput]): Checkout
+    checkout(menuitems: [MenuitemInput]): Checkout
   }
 
   type Mutation {
+    addCategory(category: CategoryInput): Category
     addUser(firstName: String!, lastName: String, email: String, password: String, mobile: String!): Auth
     addOrder(menuitems: [ID]! comment: String): Order
     addMenuitem(Menuitem: MenuitemInput!): Menuitem

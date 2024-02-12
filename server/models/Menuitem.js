@@ -5,15 +5,14 @@ const proteinOptions = ['Standard',  'Chicken', 'Beef',  'BBQPork',  'Prawns', '
 const addonOptions = ['None', 'Spicy', 'Vegan', 'Vegetarian', 'Gluten Free'];
 
 const menuitemSchema = new Schema({
+  code: {
+    type: String,
+  },
   name: {
     type: String,
     required: true,
-    trim: true
   },
   description: {
-    type: String
-  },
-  image: {
     type: String
   },
   price: {

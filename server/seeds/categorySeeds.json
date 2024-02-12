@@ -1,0 +1,22 @@
+[
+    {
+        "_id": "65c4a3e3bf7e13e2dd51236d",
+        "name": "Rice"
+    },
+    {
+        "_id": "65c4a3e3bf7e13e2dd51236f",
+        "name": "Noodles"
+    },
+    {
+        "_id": "65c4a3e3bf7e13e2dd51236b",
+        "name": "Soup"
+    },
+    {
+        "_id": "65c4a3e3bf7e13e2dd51236c",
+        "name": "Low Carb"
+    },
+    {
+        "_id": "65c4a3e3bf7e13e2dd51236e",
+        "name": "Snacks"
+    }
+]

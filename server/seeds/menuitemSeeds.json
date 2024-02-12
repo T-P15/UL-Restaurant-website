@@ -1,0 +1,182 @@
+[
+    {
+        "code": "A1",
+        "name": "Wat Tan Rice",
+        "description": "A classic malaysian street food - steamed rice topped with Uncle Lai's famous egg gravy, cooked with pork lard, succulent chicken, juicy prawn, fishcake slices and fresh veggies",
+        "price": "21.90",
+        "category": "65c4a3e3bf7e13e2dd51236d"
+    },
+    {
+        "code":"A2",
+        "name": "Fried Rice",
+        "description": "Uncle Lai's fried rice tossed with wok-hei (breath of the wok). Crunch into crispy pork lard, succulent chicken, egg, juicy prawn, mixed veggies, chinese sausage meat, fishcakes and fresh shallot",
+        "price": "18.90",
+        "category": "65c4a3e3bf7e13e2dd51236d"
+    },
+    {
+        "code":"A3",
+        "name": "Salted Fish and Chicken Fried Rice",
+        "description": "Uncle Lai's fried rice tossed with wok-hei (breath of the wok). Crunch into crispy pork lard, succulent chicken, egg, juicy prawn, mixed veggies, bits of salted fish and fresh shallot",
+        "price": "18.90",
+        "category": "65c4a3e3bf7e13e2dd51236d"
+    },
+    {
+        "code":"A4",
+        "name": "Chicken Curry Rice",
+        "description": "Creamy wholesome curry chicken served with steamed rice, boiled egg and cucumber",
+        "price": "19.90",
+        "category": "65c4a3e3bf7e13e2dd51236d"
+    },
+    {
+        "code": "B1",
+        "name": "Wat Tan Hor",
+        "description": "A malaysian favourite - wok fried rice noodles with succulent chicken, crunchy pork bits, juicy prawn, fishcake slices and fresh veggies, topped off with Uncle Lai's famous silky egg gravy",
+        "price": "21.90",
+        "category": "65c4a3e3bf7e13e2dd51236f"
+    },
+    {
+        "code": "B2",
+        "name": "Fried Noodles",
+        "description": "Uncle Lai's fried noodles with wok hei (breath of the wok) our smokey wok tossed noodles are laden with chinese sausage meat, egg, juicy prawn, chicken, fishcake, chives and local beansprouts, topped off with crispy pork crackling",
+        "price": "18.90",
+        "category": "65c4a3e3bf7e13e2dd51236f"
+    },
+    {
+        "code": "B3",
+        "name": "Char Kuay Teow",
+        "description": "Our famous signature recipe passed through generations of the Lai family, our smokey wok tossed flat rice noodles are laden with chinese sausage meat, juicy prawn, chicken, fishcake, egg, chives and local beansprouts topped off with crispy pork crackling",
+        "price": "18.90",
+        "category": "65c4a3e3bf7e13e2dd51236f"
+    },
+    {
+        "code": "B4",
+        "name": "Aunty Lai's CKT",
+        "description": "indulge in an extra large plate of char kuay teow... this time with added squid and mussels",
+        "price": "40.90",
+        "category": "65c4a3e3bf7e13e2dd51236f"
+    },
+    {
+        "code": "B5",
+        "name": "KL Hokkien Mee",
+        "description": "Another one of Uncle Lai's best sellers is this classic dish, wok fried hokkien noodles braised in fragrant sauce with juicy prawn, chicken, fishcakes and veggies, topped off with pork crackling",
+        "price": "19.90",
+        "category": "65c4a3e3bf7e13e2dd51236f"
+    },
+    {
+        "code": "B6",
+        "name": "Fried Bee Hoon",
+        "description": "Our Smokey wok fried rice vermicelli laden with chinese sausages, prawn, succulent chicken, fishcakes and veggies topped off with crispy pork crackling",
+        "price": "18.90",
+        "category": "65c4a3e3bf7e13e2dd51236f"
+    },
+    {
+        "code": "C1",
+        "name": "Curry Laksa",
+        "description": "A romance between hokkien noodles and vermicelli cooked in rich, creamy coconut curry soup; bathing tofu puff, green beans, egg, fishcakes and beansprouts",
+        "price": "22.90",
+        "category": "65c4a3e3bf7e13e2dd51236b"
+    },
+    {
+        "code": "C2",
+        "name": "Meatball Noodle Soup",
+        "description": "enjoy flavoursome meatballs in soup served with veggies",
+        "price": "19.90",
+        "category": "65c4a3e3bf7e13e2dd51236b"
+    },
+    {
+        "code": "C3",
+        "name": "Meatball Soup",
+        "description": "",
+        "price": "19.90",
+        "category": "65c4a3e3bf7e13e2dd51236b"
+    },
+    {
+        "code": "C4",
+        "name": "Pork Wonton Soup",
+        "description": "delicious pork Wontons floating on clouds in the refreshing home made broth topped with crispy pork crackling and pepper",
+        "price": "19.90",
+        "category": "65c4a3e3bf7e13e2dd51236b"
+    },
+    {
+        "code": "D1",
+        "name": "Chicken and Veggies",
+        "description": "",
+        "price": "23.90",
+        "category": "65c4a3e3bf7e13e2dd51236c"
+    },
+    {
+        "code": "D2",
+        "name": "Veggies and Tofu Puffs",
+        "description": "",
+        "price": "23.90",
+        "category": "65c4a3e3bf7e13e2dd51236c"
+    },
+    {
+        "code": "D3",
+        "name": "Beef Ginger and Shallot",
+        "description": "",
+        "price": "25.90",
+        "category": "65c4a3e3bf7e13e2dd51236c"
+    },
+    {
+        "code": "D4",
+        "name": "Beef and Veggies",
+        "description": "",
+        "price": "25.90",
+        "category": "65c4a3e3bf7e13e2dd51236c"
+    },
+    {
+        "name": "Fried Pork Spring Rolls",
+        "description": "5 pork spring rolls",
+        "price": "10",
+        "category": "65c4a3e3bf7e13e2dd51236e"
+    },
+    {
+        "name": "Fried Pork Wontons",
+        "description": "6 pork wontons",
+        "price": "10",
+        "category": "65c4a3e3bf7e13e2dd51236e"
+    },
+    {
+        "name": "Sweet Potato Fries",
+        "description": "",
+        "price": "10",
+        "category": "65c4a3e3bf7e13e2dd51236e"
+    },
+    {
+        "name": "Roti Canai",
+        "description": "Flat Bread",
+        "price": "5",
+        "category": "65c4a3e3bf7e13e2dd51236e"
+    },
+    {
+        "name": "Fried Fishballs",
+        "description": "10 fishballs",
+        "price": "10",
+        "category": "65c4a3e3bf7e13e2dd51236e"
+    },
+    {
+        "name": "Chicken Nuggets",
+        "description": "10 crispy nuggest",
+        "price": "10",
+        "category": "65c4a3e3bf7e13e2dd51236e"
+    },
+    {
+        "name": "Golden Buns",
+        "description": "crispy milk buns with condensed milk",
+        "price": "10",
+        "category": "65c4a3e3bf7e13e2dd51236e"
+    },
+    {
+        "name": "Shallot Pancakes",
+        "description": "",
+        "price": "13",
+        "category": "65c4a3e3bf7e13e2dd51236e"
+    },
+    {
+        "name": "Vegetarian Spring Rolls",
+        "description": "5 Vegetable spring rolls",
+        "price": "10",
+        "category": "65c4a3e3bf7e13e2dd51236e"
+    }
+]

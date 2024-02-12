@@ -6,4 +6,4 @@ const Admin = require('./Admin');
 const Addons = require('./Addons');
 const Protein = require('./Protein');
 
-module.exports = { User, Menuitem, Category, Order, Admin, Addons, Protein };
+module.exports = { User, Menuitem, Category, Order, Admin};
