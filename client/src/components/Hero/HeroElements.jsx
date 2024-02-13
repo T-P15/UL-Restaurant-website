@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.div`
-background: rgb(36,0,9);
-background: linear-gradient(90deg, rgba(36,0,9,1) 0%, rgba(242,197,186,1) 47%, rgba(255,0,48,1) 100%);
+background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(247,214,206,1) 47%, rgba(255,0,48,1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +37,7 @@ export const Heroh1 = styled.h1`
 
 export const HeroP = styled.p`
 margin-top: 24px;
-color: #fff;
+color: #de0a26;
 font-size: 24px;
 text-align: center;
 max-width: 600px;
