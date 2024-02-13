@@ -24,6 +24,10 @@ const resolvers = {
       
             return await Menuitem.find(params).populate('category');
           },
+          allFood: async () => {
+            const food = await Menuitem.find();
+            return food 
+          },
           menuitem: async (parent, { _id }) => {
             return await Menuitem.findById(_id).populate('category');
           },
