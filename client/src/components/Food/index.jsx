@@ -1,7 +1,13 @@
 import React from "react";
 import { GET_FOOD } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
-//import {Section} from "./FoodElements"
+import {FoodContainer,
+  FoodCard,
+  FoodName,
+  FoodPrice,
+  FoodDescription,
+  BuyButton
+} from "./FoodElements"
 
 const FoodItems = () => {
     const { loading, data } = useQuery(GET_FOOD);
@@ -12,12 +18,12 @@ const FoodItems = () => {
     return (
       <FoodContainer>
         {allFood.map((menuitem) => (
-          <div key={menuitem.id}>
-            <h2>{menuitem.name}</h2>
-            <h3>{menuitem.price}</h3>
-            <p>{menuitem.description}</p>
-            <button>Buy Now</button>
-          </div>
+          <FoodCard key={menuitem.id}>
+            <FoodName>{menuitem.name}</FoodName>
+            <FoodPrice>{menuitem.price}</FoodPrice>
+            <FoodDescription>{menuitem.description}</FoodDescription>
+            <BuyButton>Buy Now</BuyButton>
+          </FoodCard>
         ))}
       </FoodContainer>
     );
