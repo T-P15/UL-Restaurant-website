@@ -12,10 +12,12 @@ const userSchema = new Schema({
   },
   lastName: {
     type: String,
+    required: true,
     trim: true
   },
   email: {
     type: String,
+    required: true,
     unique: true
   },
   mobile: {
@@ -26,6 +28,7 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
+    required: true,
     minlength: 5
   },
   orders: [Order.schema]

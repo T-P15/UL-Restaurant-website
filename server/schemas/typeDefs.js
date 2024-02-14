@@ -20,7 +20,7 @@ const typeDefs = `
   type Order {
     _id: ID
     purchaseDate: String
-    menuItems: [Menuitem]
+    menuitems: [Menuitem]
     comment: String
     completed: Boolean
   }
@@ -82,7 +82,7 @@ const typeDefs = `
 
   type Mutation {
     addCategory(category: CategoryInput): Category
-    addUser(firstName: String!, lastName: String, email: String, password: String, mobile: String!): Auth
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!, mobile: String!): Auth
     addOrder(menuitems: [ID]! comment: String): Order
     addMenuitem(Menuitem: MenuitemInput!): Menuitem
     updateUser(firstName: String, lastName: String, email: String, password: String, mobile: String): User
