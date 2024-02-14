@@ -102,7 +102,7 @@ export const OrderButton = styled(LinkRouter)`
 
     &:hover {
         transition: all 0.2s ease-in-out;
-        background: #000;
+        background: #00FF00;
         color: #fff;
     }
 `;

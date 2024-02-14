@@ -4,6 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink, } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
+import Navbar from '../src/components/Navbar'
+import Sidebar from '../src/components/Sidebar'
 
 
 
@@ -33,10 +35,9 @@ const client = new ApolloClient({
 function App() {
     return (
       <ApolloProvider client={client}>
-        <Router>
-         <Home />
-        </Router>
-       
+        <Navbar />
+        <Sidebar />
+       <Outlet />
       </ApolloProvider> 
     );
   }
