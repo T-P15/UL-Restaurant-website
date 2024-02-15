@@ -23,7 +23,7 @@ const Navbar = ({toggle}) => {
                 </MobileIcon>
                 <NavMenu>
                     <NavItem>
-                        <NavLinks to="story">Our Story</NavLinks>
+                        <NavLinks to="/">Our Story</NavLinks>
                     </NavItem>
                     {Auth.loggedIn() ? (
                         <>

@@ -9,6 +9,8 @@ import {
     SidebarMenu,
     SideBtnWrap
  } from './SidebarElements'
+ 
+ import Auth from '../../utils/auth'
 
 const Sidebar = ({ isOpen, toggle}) => {
     return (
@@ -18,9 +20,15 @@ const Sidebar = ({ isOpen, toggle}) => {
             </Icon>
             <SidebarWrapper>
                 <SidebarMenu>
-                    <SidebarLink to="story" onClick={toggle}>Our Story</SidebarLink>
-                    <SidebarLink to="/login" onClick={toggle}>login</SidebarLink>
-                    <SidebarLink to="/signup" onClick={toggle}>Signup</SidebarLink>
+                    <SidebarLink to="/" onClick={toggle}>Our Story</SidebarLink>
+                    {Auth.loggedIn() ? (
+                        <SidebarLink  onClick={Auth.logout}>Logout</SidebarLink>
+                    ) : (
+                        <>
+                        <SidebarLink to="/login" onClick={toggle}>login</SidebarLink>
+                        <SidebarLink to="/signup" onClick={toggle}>Signup</SidebarLink>
+                        </>
+                    )}
                 </SidebarMenu>
             </SidebarWrapper>
             <SideBtnWrap>
