@@ -75,6 +75,7 @@ const typeDefs = `
     menuItems(category: ID, name: String): [Menuitem]
     menuitem(_id: ID!): Menuitem
     allFood: [Menuitem]
+    me: User
     user: User
     order(_id: ID!): Order
     checkout(menuitems: [MenuitemInput]): Checkout
