@@ -9,6 +9,7 @@ import {useNavigate} from 'react-router-dom';
 const Login = () => {
     const [formData, setFormState] = useState({ email: '', password: ''});
     const [login, {error, data}] = useMutation(LOGIN);
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         const {name, value } = e.target;
@@ -36,7 +37,7 @@ const Login = () => {
             password: '',
           });
 
-          navigate('/');
+          navigate('/order');
 
         } catch (e) {
           console.error(e);
