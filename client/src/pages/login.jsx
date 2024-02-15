@@ -3,10 +3,47 @@ import {useState} from 'react';
 import { useMutation } from '@apollo/client';
 import {LOGIN} from '../utils/mutations';
 import Auth from '../utils/auth';
+import {useNavigate} from 'react-router-dom';
 
 
 const Login = () => {
+    const [formData, setFormState] = useState({ email: '', password: ''});
+    const [login, {error, data}] = useMutation(LOGIN);
 
+    const handleInputChange = (e) => {
+        const {name, value } = e.target;
+        setFormState({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        try {
+          const { data } = await login({
+            variables: { 
+                email: formData.email,
+                password: formData.password,
+            },
+          });
+    
+          Auth.login(data.login.token);
+
+                  // clear form values
+        setFormState({
+            email: '',
+            password: '',
+          });
+
+          navigate('/');
+
+        } catch (e) {
+          console.error(e);
+        }
+    
+
+      };
     return (
         <>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -17,17 +54,18 @@ const Login = () => {
           </div>
   
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" onSubmit={handleFormSubmit}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                   Email address
                 </label>
                 <div className="mt-2">
                   <input
-                    id="email"
+                    id="email-login"
                     name="email"
                     type="email"
                     autoComplete="email"
+                    onChange={handleInputChange}
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -45,7 +83,7 @@ const Login = () => {
                     id="password"
                     name="password"
                     type="password"
-                    autoComplete="current-password"
+                    onChange={handleInputChange}
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
