@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-const { User, Menuitem, Category, Order, Admin, Drinks, Snacks } = require('../models');
+const { Menuitem, Category } = require('../models');
 const categorySeeds = require('./categorySeeds.json');
 const menuitemSeeds = require('./menuitemSeeds.json')
 const cleanDB = require('./cleanDB');

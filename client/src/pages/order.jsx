@@ -22,7 +22,7 @@ function classNames(...classes) {
 const Order = ()  => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
     return (
-    <div className="bg-white-300 ">
+    <div className="bg-white-900">
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
