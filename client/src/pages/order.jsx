@@ -22,7 +22,7 @@ function classNames(...classes) {
 const Order = ()  => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
     return (
-    <div className="bg-white">
+    <div className="bg-slate-300 ">
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -51,7 +51,7 @@ const Order = ()  => {
               >
                 <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-12 shadow-xl">
                   <div className="flex items-center justify-between px-4">
-                    <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+                    <h2 className="text-lg font-medium text-gray-900">Options</h2>
                     <button
                       type="button"
                       className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
@@ -83,8 +83,8 @@ const Order = ()  => {
           </Dialog>
         </Transition.Root>
 
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
+        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border-l border-red-600">
+          <div className="flex items-baseline justify-between border-b border-red-600 pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">Menu</h1>
 
             <div className="flex items-center">
@@ -115,7 +115,7 @@ const Order = ()  => {
               {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
-                <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
+                <ul role="list" className="space-y-4 border-b border-red-600 pb-6 text-sm font-medium text-gray-900">
                   {subCategories.map((category) => (
                     <li key={category.name}>
                       <a href={category.href}>{category.name}</a>
