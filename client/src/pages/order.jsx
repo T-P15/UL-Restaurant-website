@@ -1,9 +1,11 @@
-import React from 'react'
-import { Fragment, useState } from 'react'
-import { Dialog, Menu, Transition } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { FunnelIcon} from '@heroicons/react/20/solid'
+import React from 'react';
+import { Fragment, useState } from 'react';
+import { Dialog, Menu, Transition } from '@headlessui/react';
+import { XMarkIcon } from '@heroicons/react/24/outline';
+import { FunnelIcon} from '@heroicons/react/20/solid';
 import { FaShoppingCart } from "react-icons/fa";
+import { useQuery } from '@apollo/client';
+import { QUERY_CATEGORIES, QUERY_MENUITEMS } from '../utils/queries';
 
 const subCategories = [
   { name: 'Totes', href: '#' },
@@ -21,6 +23,14 @@ function classNames(...classes) {
 
 const Order = ()  => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+
+    const {loading, data} = useQuery(QUERY_CATEGORIES);
+    const categories = data?.categories || [];
+
+
+    
+
+    const [selectedCategory, setSelectedCategory] = useState(null)
     return (
     <div className="bg-white-900">
       <div>
@@ -66,9 +76,9 @@ const Order = ()  => {
                   <form className="mt-4 border-t border-gray-200">
                     <h3 className="sr-only">Categories</h3>
                     <ul role="list" className="px-2 py-3 font-medium text-gray-900">
-                      {subCategories.map((category) => (
-                        <li key={category.name}>
-                          <a href={category.href} className="block px-2 py-3">
+                      {categories.map((category) => (
+                        <li key={category._id} onClick = {() => onSelectCategory(category._id)} onSelectCategory={setSelectedCategory}>
+                          <a className="block px-2 py-3">
                             {category.name}
                           </a>
                         </li>
@@ -116,8 +126,8 @@ const Order = ()  => {
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
                 <ul role="list" className="space-y-4 border-b border-red-600 pb-6 text-sm font-medium text-gray-900">
-                  {subCategories.map((category) => (
-                    <li key={category.name}>
+                  {categories.map((category) => (
+                    <li key={category._id} onClick = {() => onSelectCategory(category._id)} onSelectCategory={setSelectedCategory}>
                       <a href={category.href}>{category.name}</a>
                     </li>
                   ))}

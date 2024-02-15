@@ -9,8 +9,8 @@ db.once('open', async () => {
     await cleanDB('Category', 'categories');
     await cleanDB('Menuitem', 'menuitems');
 
-    await Category.create(categorySeeds);
-    await Menuitem.create(menuitemSeeds)
+    await Category.insertMany(categorySeeds);
+    await Menuitem.insertMany(menuitemSeeds)
 
   } catch (err) {
     console.error(err);
