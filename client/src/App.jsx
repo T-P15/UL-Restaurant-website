@@ -6,6 +6,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink, } from '@a
 import { setContext } from '@apollo/client/link/context'
 import Navbar from '../src/components/Navbar'
 import Sidebar from '../src/components/Sidebar'
+import React, {useState} from "react";
 
 
 
@@ -33,10 +34,15 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggle = () => {
+      setIsOpen(!isOpen)
+  }
     return (
       <ApolloProvider client={client}>
-        <Navbar />
-        <Sidebar />
+            <Sidebar isOpen={isOpen} toggle={toggle} />
+            <Navbar toggle={toggle} />
        <Outlet />
       </ApolloProvider> 
     );

@@ -51,3 +51,16 @@ export const ADD_ORDER = gql`
   }
 `;
 
+export const REMOVE_BOOK = gql`
+  mutation removeBook($bookId: String!) {
+    removeBook(bookId: $bookId) {
+      bookId
+      authors
+      description
+      title
+      image
+      link
+    }
+  }
+`;
+

@@ -9,6 +9,8 @@ const resolvers = {
             return categories
             
           },
+
+
           menuItems: async (parent, { category, name }) => {
             const params = {};
       
@@ -24,13 +26,19 @@ const resolvers = {
       
             return await Menuitem.find(params).populate('category');
           },
+
+
           allFood: async () => {
             const food = await Menuitem.find();
             return food 
           },
+
+
           menuitem: async (parent, { _id }) => {
             return await Menuitem.findById(_id).populate('category');
           },
+
+
           user: async (parent, args, context) => {
             if (context.user) {
               const user = await User.findById(context.user._id).populate({
@@ -45,6 +53,8 @@ const resolvers = {
       
             throw AuthenticationError;
           },
+
+
           order: async (parent, { _id }, context) => {
             if (context.user) {
               const user = await User.findById(context.user._id).populate({
@@ -57,6 +67,8 @@ const resolvers = {
       
             throw AuthenticationError;
           },
+
+
           checkout: async (parent, args, context) => {
             const url = new URL(context.headers.referer).origin;
             await Order.create({ menuitems: args.menuitems.map(({ _id }) => _id) });
@@ -104,6 +116,8 @@ const resolvers = {
       
             return { token, user };
           },
+
+
           addOrder: async (parent, { menuitems }, context) => {
             if (context.user) {
               const order = new Order({ menuitems });
@@ -115,6 +129,8 @@ const resolvers = {
       
             throw AuthenticationError;
           },
+
+
           updateUser: async (parent, args, context) => {
             if (context.user) {
               return await User.findByIdAndUpdate(context.user._id, args, { new: true });
@@ -122,6 +138,8 @@ const resolvers = {
       
             throw AuthenticationError;
           },
+
+
           login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
       
@@ -139,7 +157,8 @@ const resolvers = {
       
             return { token, user };
           }
-        }
-      };
+    }
+  };
+
 
       module.exports = resolvers
