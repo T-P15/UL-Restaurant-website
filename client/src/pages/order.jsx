@@ -22,7 +22,7 @@ function classNames(...classes) {
 const Order = ()  => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
     return (
-    <div className="bg-slate-300 ">
+    <div className="bg-white-300 ">
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -83,7 +83,7 @@ const Order = ()  => {
           </Dialog>
         </Transition.Root>
 
-        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border-l border-red-600">
+        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border-l border-red-600 bg-slate-300 ">
           <div className="flex items-baseline justify-between border-b border-red-600 pb-6 pt-24">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900">Menu</h1>
 
