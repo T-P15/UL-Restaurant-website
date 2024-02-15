@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
     "@radix-ui/themes": "^2.0.3",
     "graphql": "^16.6.0",
+    "jwt-decode": "^3.1.2",
     "mdb-ui-kit": "^7.1.0",
     "pexels": "^1.4.0",
     "prop-types": "^15.8.1",
@@ -23,8 +26,7 @@
     "react-router-dom": "^6.11.2",
     "react-scroll": "^1.9.0",
     "react-youtube": "^10.1.0",
-    "styled-components": "^6.1.8",
-    "jwt-decode": "^3.1.2"
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
