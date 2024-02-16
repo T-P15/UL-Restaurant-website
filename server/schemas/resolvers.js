@@ -42,8 +42,13 @@ const resolvers = {
           user: async (parent, args, context) => {
             if (context.user) {
               const user = await User.findById(context.user._id).populate({
-                path: 'orders.menuitems',
-                populate: 'category'
+                path: 'orders',
+                populate: {
+                  path: 'menuitems',
+                  populate: {
+                    path: 'category',
+                  },
+                },
               });
       
               return user;
@@ -54,7 +59,15 @@ const resolvers = {
 
           me: async (parent, args, context) => {
             if (context.user) {
-              return User.findOne({ _id: context.user._id }).populate('orders');
+              return User.findOne({ _id: context.user._id }).populate({
+                path: 'orders',
+                populate: {
+                  path: 'menuitems',
+                  populate: {
+                    path: 'category',
+                  },
+                },
+              });
             }
             throw AuthenticationError;
           },

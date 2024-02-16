@@ -21,6 +21,7 @@ export const QUERY_CHECKOUT = gql`
 export const QUERY_USER = gql`
   {
     user {
+      _id
       firstName
       lastName
       orders {
@@ -56,6 +57,27 @@ export const QUERY_MENUITEMS = gql`
       price
       category {
         _id
+      }
+    }
+  }
+`;
+
+export const GET_ME = gql`
+  query me {
+    me {
+      _id
+      firstName
+      lastName
+      orders {
+        _id
+        purchaseDate
+        menuitems {
+          _id
+          name
+          description
+          price
+          category
+        }
       }
     }
   }

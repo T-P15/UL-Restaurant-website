@@ -8,14 +8,8 @@ import { useQuery } from '@apollo/client';
 import { QUERY_CATEGORIES, QUERY_MENUITEMS } from '../utils/queries';
 import Categories from '../components/Categories'
 import MenuList from '../components/Menulist';
+import Auth from '../utils/auth';
 
-const subCategories = [
-  { name: 'Totes', href: '#' },
-  { name: 'Backpacks', href: '#' },
-  { name: 'Travel Bags', href: '#' },
-  { name: 'Hip Bags', href: '#' },
-  { name: 'Laptop Sleeves', href: '#' },
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -24,6 +18,7 @@ function classNames(...classes) {
 
 
 const Order = ()  => {
+  
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
     const {loading, data} = useQuery(QUERY_CATEGORIES);
@@ -39,6 +34,7 @@ const Order = ()  => {
 
     return (
     <div className="bg-white-900">
+      {Auth.loggedIn() ? (
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -138,7 +134,13 @@ const Order = ()  => {
           </section>
         </main>
       </div>
-    </div>
+            ) : (
+              <>
+              <h1>please login to view the order page</h1>
+              </>
+            )}
+    </div> 
+
   )
 }
 
