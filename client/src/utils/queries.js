@@ -69,6 +69,7 @@ export const GET_ME = gql`
       _id
       firstName
       lastName
+      mobile
       orders {
         _id
         purchaseDate
@@ -77,7 +78,10 @@ export const GET_ME = gql`
           name
           description
           price
-          category
+          category {
+            _id
+            name
+          }
         }
       }
     }
