@@ -2,6 +2,7 @@ const { User, Menuitem, Category, Order, Admin} = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
+
 const resolvers = {
     Query: {
         categories: async () => {
@@ -145,19 +146,6 @@ const resolvers = {
           },
 
 
-     //     addOrder: async (parent, args, context) => {
-         //   if (context.user) {
-              
-         //     const order = await Order.create(args);
-      
-        //      await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
-      
-       //       return order;
-       //     }
-      
-      //      throw AuthenticationError;
-      //    },
-
           addOrder: async (parent,  {menuitem} , context) => {
             console.log('Received menuitem:', menuitem);
             if (context.user) {
@@ -214,8 +202,19 @@ const resolvers = {
             const token = signToken(user);
       
             return { token, user };
+          },
+
+
+          deleteUser: async (parent, {_id}, context) => {
+            if (context.user) {
+
+              return User.findOneAndDelete({ _id});
+            }
+            throw AuthenticationError;
+          },
+
           }
-    }
+    
   };
 
 

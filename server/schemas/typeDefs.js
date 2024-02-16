@@ -92,6 +92,8 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     updateOrder(completed: Boolean): Order
     removeMenuitem(menuitems: [ID]!): Order
+    deleteOrder(_id: ID!): User
+    deleteUser(_id: ID!): User
   }
 `;
 

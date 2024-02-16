@@ -1,15 +1,17 @@
 import React, {useState} from 'react';
-import { Navigate, useParams} from 'react-router-dom';
+import { Navigate, useParams, redirect} from 'react-router-dom';
 import { useQuery, useMutation} from '@apollo/client';
 import {GET_ME} from '../utils/queries'
 import Auth from '../utils/auth'
 import MobileUpdateModal from '../components/updatemobilemodal'
-import {UPDATE_USER} from '../utils/mutations'
+import {UPDATE_USER, DELETE_USER} from '../utils/mutations'
+
 
 const Profile = () => {
     const { firstName: userParam } = useParams();
     const {loading, data} = useQuery(GET_ME)
     const [isMobileModalOpen, setMobileModalOpen] = useState(false);
+    const [deleteUser] = useMutation(DELETE_USER)
 
     const [updateMobile] = useMutation(UPDATE_USER, {
       onCompleted: (data) => {
@@ -36,7 +38,7 @@ const Profile = () => {
       </div>;
     }
     if (!Auth.loggedIn()) {
-        return <Navigate to="/login" />;
+        return redirect("/login");
     }
 
     if (!user) {
@@ -49,6 +51,18 @@ const Profile = () => {
         return <Navigate to="/" />;
     }
 
+    const handleUserDeletion = async () => {
+        
+        try {
+            await deleteUser({
+                variables: {
+                    _id: user._id
+                }
+            });
+            
+        } catch (err) {
+        console.error(err)
+    }};
 
     return (
 <body class="bg-slate-400 px-6 py-12 lg:px-8 ">
@@ -90,6 +104,12 @@ const Profile = () => {
           ))}
       
     </div>
+    <button
+        className="flex  w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        onClick={handleUserDeletion}
+      >
+        Delete Account Permanently
+      </button>
   </div>
 </body>
     )

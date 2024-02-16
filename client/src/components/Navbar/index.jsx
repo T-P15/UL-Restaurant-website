@@ -23,12 +23,12 @@ const Navbar = ({toggle}) => {
                 </MobileIcon>
                 <NavMenu>
                     <NavItem>
-                        <NavLinks to="/">Our Story</NavLinks>
+                        <NavLinks to="/order">Order</NavLinks>
                     </NavItem>
                     {Auth.loggedIn() ? (
                         <>
                         <NavItem>
-                            <NavLinks to="/order">logged in proceed to order</NavLinks>
+                            <NavLinks to="/profile">View Profile</NavLinks>
                         </NavItem>
                             <NavBtn>
                                 <NavBtnLink onClick={Auth.logout}>Logout</NavBtnLink>
