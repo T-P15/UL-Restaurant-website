@@ -6,6 +6,8 @@ import { FunnelIcon} from '@heroicons/react/20/solid';
 import { FaShoppingCart } from "react-icons/fa";
 import { useQuery } from '@apollo/client';
 import { QUERY_CATEGORIES, QUERY_MENUITEMS } from '../utils/queries';
+import Categories from '../components/Categories'
+import MenuList from '../components/Menulist';
 
 const subCategories = [
   { name: 'Totes', href: '#' },
@@ -26,11 +28,15 @@ const Order = ()  => {
 
     const {loading, data} = useQuery(QUERY_CATEGORIES);
     const categories = data?.categories || [];
+    const [selectedCategory, setSelectedCategory] = useState(null)   
+
+    const {loading: itemsLoading,  data: foodData} = useQuery(QUERY_MENUITEMS,{
+      variables: {categoryId: selectedCategory}});
+      
 
 
-    
 
-    const [selectedCategory, setSelectedCategory] = useState(null)
+
     return (
     <div className="bg-white-900">
       <div>
@@ -75,15 +81,7 @@ const Order = ()  => {
                   {/* Filters */}
                   <form className="mt-4 border-t border-gray-200">
                     <h3 className="sr-only">Categories</h3>
-                    <ul role="list" className="px-2 py-3 font-medium text-gray-900">
-                      {categories.map((category) => (
-                        <li key={category._id} onClick = {() => onSelectCategory(category._id)} onSelectCategory={setSelectedCategory}>
-                          <a className="block px-2 py-3">
-                            {category.name}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
+                    <Categories categories={categories} onSelectCategory={setSelectedCategory} />
 
                   
                   </form>
@@ -125,17 +123,17 @@ const Order = ()  => {
               {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
-                <ul role="list" className="space-y-4 border-b border-red-600 pb-6 text-sm font-medium text-gray-900">
-                  {categories.map((category) => (
-                    <li key={category._id} onClick = {() => onSelectCategory(category._id)} onSelectCategory={setSelectedCategory}>
-                      <a href={category.href}>{category.name}</a>
-                    </li>
-                  ))}
-                </ul>
+                <Categories categories={categories} onSelectCategory={setSelectedCategory} />
               </form>
 
               {/* Product grid */}
-              <div className="lg:col-span-3">{/* Your content */}</div>
+              <div className="lg:col-span-3">
+              {itemsLoading ? (
+        <p>Loading items...</p>
+      ) : (
+        <MenuList menuItems={foodData?.menuItems} />
+      )}
+                </div>
             </div>
           </section>
         </main>
