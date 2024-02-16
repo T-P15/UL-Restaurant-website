@@ -1,14 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Navigate, useParams} from 'react-router-dom';
 import { useQuery, useMutation} from '@apollo/client';
 import {GET_ME} from '../utils/queries'
 import Auth from '../utils/auth'
+import MobileUpdateModal from '../components/updatemobilemodal'
+import {UPDATE_USER} from '../utils/mutations'
 
 const Profile = () => {
     const { firstName: userParam } = useParams();
     const {loading, data} = useQuery(GET_ME)
+    const [isMobileModalOpen, setMobileModalOpen] = useState(false);
+
+    const [updateMobile] = useMutation(UPDATE_USER, {
+      onCompleted: (data) => {
+        console.log('Mobile updated:', data.updateMobile);
+      },
+      onError: (error) => {
+        console.error('Error updating mobile:', error.message);
+      },
+      refetchQueries: [{ query: GET_ME }],
+    });
+
+
+    const handleUpdateMobile = (newMobile) => {
+        updateMobile({
+          variables: { mobile: newMobile },
+        });
+      };
 
     const user = data?.me;
+
     if (loading) {
         return  <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-slate-400">
             <h1 class="text-2xl">LOADING</h1>
@@ -30,17 +51,29 @@ const Profile = () => {
 
 
     return (
-<body class="bg-slate-400 px-6 py-12 lg:px-8">
-  <div class="max-w-lg mx-auto my-10 bg-white rounded-lg shadow-md p-5">
+<body class="bg-slate-400 px-6 py-12 lg:px-8 ">
+  <div class="max-w-lg mx-auto my-10 bg-white rounded-lg shadow-md p-5 ">
+    <h1 class="text-center text-2xl font-semibold mt-3">WELCOME</h1>
     <h2 class="text-center text-2xl font-semibold mt-3">{user.firstName} {user.lastName}</h2>
     <p class="text-center text-gray-600 mt-1">contact: {user.mobile}</p>
-    <div class="flex justify-center mt-5">
-      <a href="#" class="text-blue-500 hover:text-blue-700 mx-3">Twitter</a>
-      <a href="#" class="text-blue-500 hover:text-blue-700 mx-3">LinkedIn</a>
-      <a href="#" class="text-blue-500 hover:text-blue-700 mx-3">GitHub</a>
-    </div>
+    {/* Open mobile update modal */}
+    
+    <button
+        className="flex  w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        onClick={() => setMobileModalOpen(true)}
+      >
+        Update Mobile
+      </button>
+     
+      {/* Mobile update modal */}
+      <MobileUpdateModal
+        isOpen={isMobileModalOpen}
+        onClose={() => setMobileModalOpen(false)}
+        onUpdateMobile={handleUpdateMobile}
+      />
+
     <div class="mt-5">
-      <h3 class="text-xl font-semibold">Orders</h3>
+      <h3 class="text-2xl font-semibold text-center">Orders</h3>
       {user.orders.map(order => (
         <div class="border-b border-solid border-red-500" key={order._id}>
           <h3 class="p-3">ORDER ID: {order._id}</h3>

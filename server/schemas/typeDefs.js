@@ -88,7 +88,7 @@ const typeDefs = `
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, mobile: String!): Auth
     addOrder(menuitem: MenuitemInput! comment: String): Order
     addMenuitem(Menuitem: MenuitemInput!): Menuitem
-    updateUser(firstName: String, lastName: String, email: String, password: String, mobile: String): User
+    updateUser(mobile: String): User
     login(email: String!, password: String!): Auth
     updateOrder(completed: Boolean): Order
     removeMenuitem(menuitems: [ID]!): Order

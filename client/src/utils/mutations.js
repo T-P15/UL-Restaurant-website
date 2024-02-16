@@ -51,5 +51,26 @@ export const ADD_ORDER = gql`
   }
 `;
 
-
-
+export const UPDATE_USER = gql`
+  mutation updateUser($mobile: String) {
+    updateUser(mobile: $mobile) {
+      _id
+      firstName
+      lastName
+      mobile
+      orders {
+        _id
+        menuitem {
+          _id
+          name
+          description
+          price
+          category {
+            _id
+            name
+          }
+        }
+      }
+    }
+  }
+`;

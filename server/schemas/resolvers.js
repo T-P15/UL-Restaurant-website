@@ -189,9 +189,9 @@ const resolvers = {
         
       
 
-          updateUser: async (parent, args, context) => {
+          updateUser: async (parent, {mobile}, context) => {
             if (context.user) {
-              return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+              return await User.findByIdAndUpdate(context.user._id, { $set: { mobile } }, { new: true });
             }
       
             throw AuthenticationError;
