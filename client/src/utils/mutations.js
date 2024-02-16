@@ -44,6 +44,7 @@ export const ADD_ORDER = gql`
         description
         price
         category {
+          _id
           name
         }
       }

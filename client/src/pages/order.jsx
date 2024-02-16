@@ -4,11 +4,12 @@ import { Dialog, Menu, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { FunnelIcon} from '@heroicons/react/20/solid';
 import { FaShoppingCart } from "react-icons/fa";
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { QUERY_CATEGORIES, QUERY_MENUITEMS } from '../utils/queries';
 import Categories from '../components/Categories'
 import MenuList from '../components/Menulist';
 import Auth from '../utils/auth';
+import { ADD_ORDER } from '../utils/mutations';
 
 
 function classNames(...classes) {

@@ -57,6 +57,7 @@ export const QUERY_MENUITEMS = gql`
       price
       category {
         _id
+        name
       }
     }
   }

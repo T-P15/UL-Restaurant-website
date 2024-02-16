@@ -6,6 +6,7 @@ import Home from '../src/pages/home.jsx'
 import Signup from '../src/pages/signup.jsx'
 import Login from '../src/pages/login.jsx'
 import Order from '../src/pages/order.jsx'
+import Profile from '../src/pages/profile.jsx'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: 'order',
         element: <Order />
+      },
+      {
+        path: 'profile',
+        element: <Profile />
       }
     ]
   }
