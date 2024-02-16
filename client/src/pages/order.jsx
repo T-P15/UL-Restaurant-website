@@ -9,7 +9,7 @@ import { QUERY_CATEGORIES, QUERY_MENUITEMS } from '../utils/queries';
 import Categories from '../components/Categories'
 import MenuList from '../components/Menulist';
 import Auth from '../utils/auth';
-import { ADD_ORDER } from '../utils/mutations';
+
 
 
 function classNames(...classes) {

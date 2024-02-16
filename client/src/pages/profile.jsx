@@ -41,7 +41,20 @@ const Profile = () => {
     </div>
     <div class="mt-5">
       <h3 class="text-xl font-semibold">Orders</h3>
-    <p class="text-gray-600 mt-2">hello </p>
+      {user.orders.map(order => (
+        <div class="border-b border-solid border-red-500" key={order._id}>
+          <h3 class="p-3">ORDER ID: {order._id}</h3>
+          {order.menuitem ? (
+            <div>
+              <h4 class="p-3">Order Details:</h4>
+              <p class="text-center p-5 font-bold text-lg text-red-500"> {order.menuitem.name}</p>
+              <p class="italic"> {order.menuitem.description}</p>
+              <p class = "text-center p-3">Price: ${order.menuitem.price}</p>
+            </div>
+          ) : (
+            <p>No menuitem details available for this order.</p>
+          )} </div>
+          ))}
       
     </div>
   </div>
