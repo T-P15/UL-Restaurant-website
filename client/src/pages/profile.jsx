@@ -40,8 +40,9 @@ const Profile = () => {
       <a href="#" class="text-blue-500 hover:text-blue-700 mx-3">GitHub</a>
     </div>
     <div class="mt-5">
-      <h3 class="text-xl font-semibold">Bio</h3>
-      <p class="text-gray-600 mt-2">John is a software engineer with over 10 years of experience in developing web and mobile applications. He is skilled in JavaScript, React, and Node.js.</p>
+      <h3 class="text-xl font-semibold">Orders</h3>
+    <p class="text-gray-600 mt-2">hello </p>
+      
     </div>
   </div>
 </body>

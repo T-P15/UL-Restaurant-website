@@ -10,6 +10,10 @@ const resolvers = {
             
           },
 
+          orders: async () => {
+            const orders = await Order.find().populate('menuitem');
+            console.log(orders)
+          },
 
           menuItems: async (parent, { category, name }) => {
             const params = {};
@@ -31,6 +35,11 @@ const resolvers = {
           allFood: async () => {
             const food = await Menuitem.find();
             return food 
+          },
+
+          users: async () => {
+            const users = await users.find().populate('order').populate("menuitem");
+            return users
           },
 
 
@@ -62,7 +71,7 @@ const resolvers = {
               return User.findOne({ _id: context.user._id }).populate({
                 path: 'orders',
                 populate: {
-                  path: 'menuitems',
+                  path: 'menuitem',
                   populate: {
                     path: 'category',
                   },
@@ -136,18 +145,49 @@ const resolvers = {
           },
 
 
-          addOrder: async (parent, { menuitems }, context) => {
+     //     addOrder: async (parent, args, context) => {
+         //   if (context.user) {
+              
+         //     const order = await Order.create(args);
+      
+        //      await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+      
+       //       return order;
+       //     }
+      
+      //      throw AuthenticationError;
+      //    },
+
+          addOrder: async (parent,  {menuitem} , context) => {
+            console.log('Received menuitem:', menuitem);
             if (context.user) {
-              const order = new Order({ menuitems });
+              try {
+                // Create the order and associate menu items
+                const order = await Order.create({
+                  menuitem: menuitem});
       
-              await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+                // Update the user with the new order
+                
       
-              return order;
+                // Populate the order with menu items before returning
+                const populatedOrder = await Order.populate(order, { path: 'menuitem',
+              populate: {
+                path: 'category',
+              }, });
+
+                await User.findByIdAndUpdate(context.user._id, { $push: { orders: populatedOrder } })
+                console.log('Order created:', populatedOrder);
+                return populatedOrder;
+              } catch (error) {
+                console.error(error);
+                throw new Error('Error creating order.');
+              }
             }
       
-            throw AuthenticationError;
+            throw new AuthenticationError('You must be logged in to place an order.');
           },
-
+        
+      
 
           updateUser: async (parent, args, context) => {
             if (context.user) {

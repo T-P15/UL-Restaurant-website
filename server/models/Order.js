@@ -3,16 +3,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const orderSchema = new Schema({
-  purchaseDate: {
-    type: Date,
-    default: Date.now
-  },
-  menuitems: [
+  menuitem: 
     {
       type: Schema.Types.ObjectId,
       ref: 'Menuitem'
     }
-  ],
+  ,
   comment: {
     type: String,
     maxLength: 255

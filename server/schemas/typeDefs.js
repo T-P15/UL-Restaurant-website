@@ -19,8 +19,7 @@ const typeDefs = `
 
   type Order {
     _id: ID
-    purchaseDate: String
-    menuitems: [Menuitem]
+    menuitem: Menuitem
     comment: String
     completed: Boolean
   }
@@ -54,6 +53,7 @@ const typeDefs = `
   }
 
   input MenuitemInput {
+    _id: ID
     code: String
     name: String
     description: String
@@ -71,6 +71,7 @@ const typeDefs = `
   }
 
   type Query {
+    orders: [Order]
     categories: [Category]
     menuItems(category: ID, name: String): [Menuitem]
     menuitem(_id: ID!): Menuitem
@@ -79,12 +80,13 @@ const typeDefs = `
     user: User
     order(_id: ID!): Order
     checkout(menuitems: [MenuitemInput]): Checkout
+    users: [User]
   }
 
   type Mutation {
     addCategory(category: CategoryInput): Category
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, mobile: String!): Auth
-    addOrder(menuitems: [ID]! comment: String): Order
+    addOrder(menuitem: MenuitemInput! comment: String): Order
     addMenuitem(Menuitem: MenuitemInput!): Menuitem
     updateUser(firstName: String, lastName: String, email: String, password: String, mobile: String): User
     login(email: String!, password: String!): Auth

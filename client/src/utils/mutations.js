@@ -35,10 +35,9 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_ORDER = gql`
-  mutation addOrder($menuitems: [ID]!) {
-    addOrder(menuitems: $menuitems) {
-      purchaseDate
-      menuitems {
+  mutation addOrder($menuitem: MenuitemInput!) {
+    addOrder(menuitem: $menuitem) {
+      menuitem {
         _id
         name
         description
@@ -52,16 +51,5 @@ export const ADD_ORDER = gql`
   }
 `;
 
-export const REMOVE_BOOK = gql`
-  mutation removeBook($bookId: String!) {
-    removeBook(bookId: $bookId) {
-      bookId
-      authors
-      description
-      title
-      image
-      link
-    }
-  }
-`;
+
 

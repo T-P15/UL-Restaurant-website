@@ -72,8 +72,7 @@ export const GET_ME = gql`
       mobile
       orders {
         _id
-        purchaseDate
-        menuitems {
+        menuitem {
           _id
           name
           description
