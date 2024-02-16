@@ -16,7 +16,7 @@ const Signup = () => {
     password: '', });
 
     const [addUser, {error, data}] = useMutation(ADD_USER);
-    const navigate = useNavigate();
+    
     
 
     const handleInputChange = (event) => {
@@ -27,6 +27,7 @@ const Signup = () => {
     const handleFormSubmit = async (event) => {
       event.preventDefault();
       
+
       try {
         const { data } = await addUser({
           variables: { 
@@ -48,7 +49,7 @@ const Signup = () => {
           password: '',
         });
 
-        navigate('/order')
+        
 
       } catch (e) {
         console.error(e);
@@ -69,14 +70,14 @@ const Signup = () => {
           <body class="h-full">
           ```
         */}
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-slate-400">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
               Sign up to place an Order
             </h2>
           </div>
   
-          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm bg-white p-3 shadow-2xl">
             <form id= "sign-up-form" className="space-y-6" onSubmit= {handleFormSubmit}>
               <div>
                 <label className="block text-sm font-medium leading-6 text-gray-900">
@@ -170,7 +171,7 @@ const Signup = () => {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign up
                 </button>
@@ -181,7 +182,7 @@ const Signup = () => {
               already a member?{' '}
             </p>
             <button
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Login
                 </button>
